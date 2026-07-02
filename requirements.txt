@@ -2,6 +2,7 @@ gdown
 transformers
 torch
 pandas
+pyarrow
 tqdm
 scikit-learn
 matplotlib

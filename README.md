@@ -18,6 +18,9 @@ top to bottom:
    auto-detection doesn't match your file's schema.
 3. Run the download, inference, and save steps.
 
-The notebook writes `sentiment_comparison_results.csv`: the original data
+The notebook processes the data in resumable chunks (checkpointed to Google
+Drive as Parquet shards, so Colab disconnects don't lose work) and writes
+`sentiment_comparison_results.parquet` to your Drive: the original data
 plus, for each model, a predicted label, its top score, and the full
-per-class probability distribution.
+per-class probability distribution. Start with `SAMPLE_N = 100_000` to
+validate the pipeline, then set it to `None` for the full ~7M-row run.
